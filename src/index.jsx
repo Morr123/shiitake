@@ -123,7 +123,6 @@ class Shiitake extends React.Component {
   _setTestChildren(start, end) {
     // if it's within the treshold or has already been calculated, go linear
     const trimEnd = (end - start < 6 || this.state.lastCalculatedWidth > -1) ? end : end - Math.round((end - start) / 2);
-
     this.setState({ testChildren: this.state.allChildren.substring(0, trimEnd) });
     this._callDeffered(this._checkHeight.bind(this, start, end));
   }
@@ -133,11 +132,14 @@ class Shiitake extends React.Component {
     const { allChildren } = this.state;
     let children = this.state.allChildren;
     const oldChildren = this.state.children;
-
+    const oldChildrenWords = oldChildren.split(' ');
+    
     // are we actually trimming?
-    if (this.state.testChildren.length < this.state.allChildren.length) {
-      children = this.state.testChildren.split(' ').slice(0, -1).join(' ');
+    if (oldChildrenWords.length > 1 && this.state.testChildren.length < this.state.allChildren.length) {
+      const testChildrenSplit = this.state.testChildren.split(' ');
+      children = testChildrenSplit.slice(0, testChildrenSplit.length > 2 ? -1 : 1).join(' ');
     }
+    
     this._handlingResize = false;
     this.setState({ children, lastCalculatedWidth: this.spreader.offsetWidth });
 

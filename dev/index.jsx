@@ -7,10 +7,7 @@ import Shiitake from '../src';
 
 import './index.css';
 
-const ipsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pretium tincidunt viverra. Pellentesque
-auctor leo sit amet eros fringilla placerat. Proin et velit nec nulla laoreet sagittis. Nullam finibus lorem
-cursus, convallis diam nec, laoreet libero. In venenatis, risus sit amet lobortis commodo, dui nulla feugiat
-libero, sed pharetra enim mauris id turpis.`;
+const ipsum = 'LoremipsumdolorsitametconsecteturadipiscingelitPraesentpretiumtinciduntviverraPellentesqueauctorleositameterosfringillaplaceratProinetvelitnecnullalaoreetsagittisNullamfinibusloremcursusconvallisdiamnec';
 
 const ipsum2 = `Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
@@ -41,10 +38,45 @@ class App extends React.Component {
   toggleTruncatedText(isTruncated) {
     this.setState({ truncatedText: isTruncated });
   }
+  
+  /* render(){
+    const text = 'qweqweqwe231231wqewqe1233eeq1q123qew12cxvxcv';
+    
+    return (<div>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <div className="wrapper" style={{width: '322.15px', paddingLeft: '100px', fontSize: '1rem' }}>
+        <Shiitake lines={1}>{text}</Shiitake>
+      </div>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+    </div>)
+  }*/
 
+  
   render() {
     const { truncatedText } = this.state;
-    const text = 'Cook it up all night with Shitakes';
+    const text = '1Cookwqeqwe123312123 123qwqweqweqweqweqweqweqweqwe123';
 
     // used to verify that passing undefined is safe
     let nullText;
@@ -67,8 +99,8 @@ class App extends React.Component {
         </div>
 
         <h2>Create inline style with flexbox:</h2>
-        <div className="shiitake-inline-wrapper">
-          <Shiitake lines={1} throttleRate={200} className="shiitake-inline">
+        <div style={{width: '100px'}} className="shiitake-inline-wrapper">
+          <Shiitake lines={1}>
             {text}
           </Shiitake>
           &gt;
